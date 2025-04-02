@@ -1,1 +1,26 @@
+local Players = game:GetService("Players")
 
+for _, plr in Players:GetPlayers() do
+    local Character = plr.Character or plr.CharacterAdded:Wait()
+    local HumanoidRootPart = Character:FindFirstChild("HumanoidRootPart")
+
+    if HumanoidRootPart then
+        local BillBoardGui = Instance.new("BillboardGui")
+        local Frame = Instance.new("Frame")
+
+        BillBoardGui.Parent = HumanoidRootPart
+
+        BillBoardGui.AlwaysOnTop = true
+        BillBoardGui.Size = Udim2.new(5, 0, 6.5, 0)
+
+        Frame.Parent = BillBoardGui
+
+        Frame.BackgroundTransparency = 0.7
+        Frame.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        Frame.BorderMode = Enum.BorderMode.Middle
+        Frame.BorderSizePixel = 10
+        Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+
+        Frame.Size = Udim2.new(1, 0, 1, 0)
+    end
+end
